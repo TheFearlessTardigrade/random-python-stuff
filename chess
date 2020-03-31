@@ -1,0 +1,16 @@
+import requests
+import json
+
+
+
+name = input("What's your username?: ")
+response = requests.get("https://api.chess.com/pub/player/" + name + "/stats")
+print(response.status_code)
+print(response.json())
+
+def jprint(obj):
+    
+    text = json.dumps(obj, sort_keys=False, indent=5)
+    print(text)
+
+jprint(response.json())
